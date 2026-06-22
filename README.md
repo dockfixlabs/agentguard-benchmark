@@ -1,4 +1,4 @@
-# AgentGuard Benchmark Suite
+﻿# AgentGuard Benchmark Suite
 
 > **100+ vulnerable AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
 
@@ -19,13 +19,13 @@ Use this suite to:
 
 ```
 samples/
- ASI01/          # Prompt Injection (20 samples)
- ASI02/          # Tool Abuse (15 samples)
- ASI03/          # Data Exfiltration (15 samples)
- ASI07/          # Credential Exposure (20 samples)
- ASI10/          # Trust Boundary Violation (15 samples)
- clean/          # Safe code (15 samples) - for FP testing
- README.md       # This file
+ ASI01/ # Prompt Injection (20 samples)
+ ASI02/ # Tool Abuse (15 samples)
+ ASI03/ # Data Exfiltration (15 samples)
+ ASI07/ # Credential Exposure (20 samples)
+ ASI10/ # Trust Boundary Violation (15 samples)
+ clean/ # Safe code (15 samples) - for FP testing
+ README.md # This file
 ```
 
 ## Running Benchmarks
@@ -37,8 +37,8 @@ pip install dfx-agentguard
 
 # Scan all samples
 for dir in samples/*/; do
-    echo "=== Scanning $dir ==="
-    agentguard "$dir" --format json
+ echo "=== Scanning $dir ==="
+ agentguard "$dir" --format json
 done
 
 # Compare results
