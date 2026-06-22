@@ -10,22 +10,22 @@
 A curated collection of **vulnerable AI agent code samples** organized by OWASP ASI Top 10 category. Each sample is a minimal, reproducible example of a real vulnerability pattern found in production AI agent code.
 
 Use this suite to:
-- ✅ Test if your scanner detects known patterns
-- ✅ Measure false positive rates against clean code
-- ✅ Compare AgentGuard vs. other SAST tools
-- ✅ Learn about agent-specific vulnerability patterns
+- [x] Test if your scanner detects known patterns
+- [x] Measure false positive rates against clean code
+- [x] Compare AgentGuard vs. other SAST tools
+- [x] Learn about agent-specific vulnerability patterns
 
 ## Structure
 
 ```
 samples/
-├── ASI01/          # Prompt Injection (20 samples)
-├── ASI02/          # Tool Abuse (15 samples)
-├── ASI03/          # Data Exfiltration (15 samples)
-├── ASI07/          # Credential Exposure (20 samples)
-├── ASI10/          # Trust Boundary Violation (15 samples)
-├── clean/          # Safe code (15 samples) — for FP testing
-└── README.md       # This file
+ ASI01/          # Prompt Injection (20 samples)
+ ASI02/          # Tool Abuse (15 samples)
+ ASI03/          # Data Exfiltration (15 samples)
+ ASI07/          # Credential Exposure (20 samples)
+ ASI10/          # Trust Boundary Violation (15 samples)
+ clean/          # Safe code (15 samples) - for FP testing
+ README.md       # This file
 ```
 
 ## Running Benchmarks
