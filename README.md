@@ -1,9 +1,9 @@
 ﻿# AgentGuard Benchmark Suite
 
-> **100+ vulnerable AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
+> **27+ vulnerable AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Samples](https://img.shields.io/badge/samples-100+-blue?style=flat-square)]()
+[![Samples](https://img.shields.io/badge/samples-27+-blue?style=flat-square)]()
 
 ## What This Is
 
