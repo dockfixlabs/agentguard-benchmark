@@ -1,4 +1,4 @@
-"""AgentGuard Benchmark runner — scan all samples and report detection rates."""
+"""AgentGuard Benchmark runner -- scan all samples and report detection rates."""
 
 import json
 import subprocess
@@ -40,7 +40,7 @@ def run_benchmark(samples_dir: str = "samples"):
 
     # Print report
     print("=" * 60)
-    print("🛡️ AgentGuard Benchmark Report")
+    print("AgentGuard Benchmark Report")
     print("=" * 60)
     print()
     print(f"{'Category':<12} {'Total':>6} {'Detected':>10} {'Rate':>8} {'FP':>5}")
@@ -52,7 +52,7 @@ def run_benchmark(samples_dir: str = "samples"):
 
     for cat in sorted(results.keys()):
         r = results[cat]
-        rate = f"{(r['detected']/r['total']*100):.0f}%" if r["total"] > 0 and cat != "clean" else "—"
+        rate = f"{(r['detected']/r['total']*100):.0f}%" if r["total"] > 0 and cat != "clean" else "--"
         if cat == "clean":
             rate = f"{(1 - r['false_positives']/r['total']*100):.0f}%"
         print(f"{cat:<12} {r['total']:>6} {r['detected']:>10} {rate:>8} {r['false_positives']:>5}")
@@ -61,11 +61,18 @@ def run_benchmark(samples_dir: str = "samples"):
             total_detected += r["detected"]
         total_fp += r["false_positives"]
 
+    clean_total = results.get("clean", {}).get("total", 0)
+    vuln_total = total_samples - clean_total
+
     print("-" * 45)
-    print(f"{'TOTAL':<12} {total_samples:>6} {total_detected:>10} {(total_detected/(total_samples-total_fp)*100):.0f}% {total_fp:>5}")
+    if vuln_total > 0:
+        print(f"{'TOTAL':<12} {total_samples:>6} {total_detected:>10} {(total_detected/vuln_total*100):.0f}% {total_fp:>5}")
+    else:
+        print(f"{'TOTAL':<12} {total_samples:>6} {total_detected:>10} {'--':>8} {total_fp:>5}")
     print()
     print(f"False positives: {total_fp}")
-    print(f"Detection rate: {(total_detected/(total_samples - results['clean']['total'])*100):.1f}%")
+    if vuln_total > 0:
+        print(f"Detection rate: {(total_detected/vuln_total*100):.1f}%")
     print()
 
     # Output JSON

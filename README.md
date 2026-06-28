@@ -1,9 +1,9 @@
-﻿# AgentGuard Benchmark Suite
+# AgentGuard Benchmark Suite
 
-> **27+ vulnerable AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
+> **28 vulnerable + clean AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Samples](https://img.shields.io/badge/samples-27+-blue?style=flat-square)]()
+[![Samples](https://img.shields.io/badge/samples-28-blue?style=flat-square)]()
 
 ## What This Is
 
@@ -19,13 +19,12 @@ Use this suite to:
 
 ```
 samples/
- ASI01/ # Prompt Injection (20 samples)
- ASI02/ # Tool Abuse (15 samples)
- ASI03/ # Data Exfiltration (15 samples)
- ASI07/ # Credential Exposure (20 samples)
- ASI10/ # Trust Boundary Violation (15 samples)
- clean/ # Safe code (15 samples) - for FP testing
- README.md # This file
+ ASI01/ # Prompt Injection (6 samples)
+ ASI02/ # Tool Abuse (5 samples)
+ ASI03/ # Data Exfiltration (4 samples)
+ ASI07/ # Credential Exposure (6 samples)
+ ASI10/ # Trust Boundary Violation (5 samples)
+ clean/ # Safe code (2 samples) - for FP testing
 ```
 
 ## Running Benchmarks
@@ -49,12 +48,12 @@ python benchmark.py --scanner agentguard --dir samples/
 
 | Category | Samples | Expected Findings | AgentGuard Detection Rate |
 |----------|---------|-------------------|--------------------------|
-| ASI01 | 20 | 20 | 100% |
-| ASI02 | 15 | 15 | 100% |
-| ASI03 | 15 | 15 | 95%+ |
-| ASI07 | 20 | 20 | 100% |
-| ASI10 | 15 | 15 | 95%+ |
-| clean | 15 | 0 | 0% (no false positives) |
+| ASI01 | 6 | 6 | 100% |
+| ASI02 | 5 | 5 | 100% |
+| ASI03 | 4 | 4 | 95%+ |
+| ASI07 | 6 | 6 | 100% |
+| ASI10 | 5 | 5 | 95%+ |
+| clean | 2 | 0 | 0% (no false positives) |
 
 ## Contributing
 
