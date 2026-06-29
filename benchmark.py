@@ -20,7 +20,7 @@ def run_benchmark(samples_dir: str = "samples"):
             results[category]["total"] += 1
             try:
                 output = subprocess.check_output(
-                    ["agentguard", str(sample_file), "--format", "json"],
+                    ["agentguard", str(sample_file), "--format", "json", "--no-exit-code"],
                     timeout=10,
                     text=True,
                 )
