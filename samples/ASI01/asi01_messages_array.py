@@ -1,4 +1,4 @@
-# ASI01: Prompt Injection — user input in messages array
+# ASI01: Prompt Injection -- user input in messages array
 # Vulnerability: Raw user input passed as message content
 # Expected: AgentGuard ASI01-PROMPT-INJECTION CRITICAL
 user_msg = request.json.get("message")

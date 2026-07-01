@@ -1,13 +1,13 @@
 # AgentGuard Benchmark Suite
 
-> **28 vulnerable + clean AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
+> **32 vulnerable + clean AI agent code samples with known OWASP ASI mappings.** Use to test AgentGuard, Semgrep, CodeQL, and other SAST tools for agent-specific vulnerabilities.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Samples](https://img.shields.io/badge/samples-28-blue?style=flat-square)]()
+[![Samples](https://img.shields.io/badge/samples-32-blue?style=flat-square)]()
 
 ## What This Is
 
-A curated collection of **vulnerable AI agent code samples** organized by OWASP ASI Top 10 category. Each sample is a minimal, reproducible example of a real vulnerability pattern found in production AI agent code.
+A curated collection of vulnerable AI agent code samples organized by OWASP ASI Top 10 category. Each sample is a minimal, reproducible example of a real vulnerability pattern found in production AI agent code.
 
 Use this suite to:
 - [x] Test if your scanner detects known patterns
@@ -19,12 +19,14 @@ Use this suite to:
 
 ```
 samples/
- ASI01/ # Prompt Injection (6 samples)
- ASI02/ # Tool Abuse (5 samples)
- ASI03/ # Data Exfiltration (4 samples)
- ASI07/ # Credential Exposure (6 samples)
- ASI10/ # Trust Boundary Violation (5 samples)
- clean/ # Safe code (2 samples) - for FP testing
+  ASI01/ # Prompt Injection (6 samples)
+  ASI02/ # Tool Abuse (5 samples)
+  ASI03/ # Data Exfiltration (4 samples)
+  ASI06/ # Insecure Output Handling (2 samples)
+  ASI07/ # Credential Exposure (6 samples)
+  ASI09/ # Agent Loop Exploitation (2 samples)
+  ASI10/ # Trust Boundary Violation (5 samples)
+  clean/ # Safe code (2 samples) - for FP testing
 ```
 
 ## Running Benchmarks
@@ -36,8 +38,8 @@ pip install dfx-agentguard
 
 # Scan all samples
 for dir in samples/*/; do
- echo "=== Scanning $dir ==="
- agentguard "$dir" --format json
+  echo "=== Scanning $dir ==="
+  agentguard "$dir" --format json --no-exit-code
 done
 
 # Compare results
@@ -50,9 +52,11 @@ python benchmark.py --scanner agentguard --dir samples/
 |----------|---------|-------------------|--------------------------|
 | ASI01 | 6 | 6 | 100% |
 | ASI02 | 5 | 5 | 100% |
-| ASI03 | 4 | 4 | 95%+ |
+| ASI03 | 4 | 4 | 100% |
+| ASI06 | 2 | 2 | 100% |
 | ASI07 | 6 | 6 | 100% |
-| ASI10 | 5 | 5 | 95%+ |
+| ASI09 | 2 | 2 | 100% |
+| ASI10 | 5 | 5 | 100% |
 | clean | 2 | 0 | 0% (no false positives) |
 
 ## Contributing
